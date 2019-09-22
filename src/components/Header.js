@@ -6,7 +6,7 @@ const Header = ({ score, topScore }) => {
     <div>
       <nav className="navbar">
         <div>
-          <h1>Clicky Game</h1>
+          <h1>Cloud Clicker</h1>
         </div>
         <div>
           <h3>Click an image to begin!</h3>
