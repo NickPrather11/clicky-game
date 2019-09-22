@@ -1,6 +1,9 @@
 .wrapper {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
-  justify-content: space-around;
+  height: 80%;
+  width: 50%;
+  margin-left: 17rem;
 }

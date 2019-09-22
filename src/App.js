@@ -9,17 +9,7 @@ class App extends Component {
     score: 0,
     topScore: 0,
     clicked: [],
-    images: [
-      "../images/1.jpg",
-      "../images/2.jpg",
-      "../images/3.jpg",
-      "../images/4.jpg",
-      "../images/5.jpg",
-      "../images/6.jpg",
-      "../images/7.jpg",
-      "../images/8.jpg",
-      "../images/9.jpg"
-    ]
+    images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"]
   };
 
   render() {
@@ -28,7 +18,6 @@ class App extends Component {
       <div>
         <Header score={score} topScore={topScore} />
         <Wrapper>
-          {/* <img src={require("./images/1.jpg")} alt="" /> */}
           {images.map((image, index) => (
             <PicCard pic={image} id={index} />
           ))}
