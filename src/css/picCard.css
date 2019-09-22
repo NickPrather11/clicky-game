@@ -1,0 +1,10 @@
+.picCard {
+  height: 2rem;
+  width: 2rem;
+  margin: 1rem;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
