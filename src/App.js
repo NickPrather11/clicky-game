@@ -8,25 +8,42 @@ class App extends Component {
   state = {
     score: 0,
     topScore: 0,
-    message: "Click an image to begin!",
+    message: "Don't click the same image twice!",
     clicked: [],
     images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"]
   };
 
   handleImgClick = id => {
-    console.log("You Clicked: " + this);
-    const { score, topScore, clicked } = this.state;
+    console.log("You Clicked ID #: " + id);
+    const { score, message, clicked, images } = this.state;
+
+    if (message === "You already clicked that one! TRY AGAIN") {
+      this.setState({ message: "Don't click the same image twice!" });
+    }
+
     if (clicked.indexOf(id) > -1) {
-      // HAS ALREADY BEEN CLICKED, LOSE GAME
-      this.setState({ message: "You already clicked that one! CLICK ANY IMAGE TO START OVER", score: 0 });
+      this.setState({ message: "You already clicked that one! TRY AGAIN", score: 0, clicked: [] });
     } else {
-      this.setState({ score: score + 1 });
+      this.setState({
+        score: score + 1,
+        images: images.sort(function() {
+          return 0.5 - Math.random();
+        })
+      });
+
       clicked.push(id);
-      if (topScore < score) {
-        this.setState({ topScore: score });
-      }
     }
   };
+
+  componentDidUpdate() {
+    const { score, topScore } = this.state;
+    if (topScore < score) {
+      this.setState({ topScore: score });
+    }
+    if (score === 9) {
+      this.setState({ message: "CONGRATULATIONS, YOU WON! Click any image to play again", score: 0, clicked: [] });
+    }
+  }
 
   render() {
     const { score, topScore, images, message } = this.state;
@@ -34,8 +51,11 @@ class App extends Component {
       <div>
         <Header score={score} topScore={topScore} message={message} />
         <Wrapper>
-          {images.map((image, index) => (
-            <PicCard key={image} pic={image} id={index} handleImgClick={this.handleImgClick} />
+          <div>
+            <h1>{message}</h1>
+          </div>
+          {images.map(image => (
+            <PicCard key={image} pic={image} id={image.charAt(0)} handleImgClick={this.handleImgClick} />
           ))}
         </Wrapper>
       </div>

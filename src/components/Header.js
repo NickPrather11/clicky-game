@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/header.css";
 
-const Header = ({ score, topScore, message }) => {
+const Header = ({ score, topScore }) => {
   return (
     <div>
       <nav className="navbar">
@@ -9,7 +9,7 @@ const Header = ({ score, topScore, message }) => {
           <h1>Cloud Clicker</h1>
         </div>
         <div className="messageDiv">
-          <h3>{message}</h3>
+          <h3>Click any image to begin</h3>
         </div>
         <div>
           <h1>
