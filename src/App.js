@@ -41,7 +41,11 @@ class App extends Component {
       this.setState({ topScore: score });
     }
     if (score === 9) {
-      this.setState({ message: "CONGRATULATIONS, YOU WON! Click any image to play again", score: 0, clicked: [] });
+      this.setState({
+        message: "CONGRATULATIONS, YOU WON! Click any image to play again",
+        score: 0,
+        clicked: []
+      });
     }
   }
 
@@ -49,11 +53,12 @@ class App extends Component {
     const { score, topScore, images, message } = this.state;
     return (
       <div>
-        <Header score={score} topScore={topScore} message={message} />
+        <Header score={score} topScore={topScore} />
         <Wrapper>
           <div>
             <h1>{message}</h1>
           </div>
+
           {images.map(image => (
             <PicCard key={image} pic={image} id={image.charAt(0)} handleImgClick={this.handleImgClick} />
           ))}

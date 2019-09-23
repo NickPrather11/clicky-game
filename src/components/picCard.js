@@ -5,7 +5,6 @@ const PicCard = ({ pic, id, handleImgClick }) => {
   return (
     <div className="picCard">
       <img src={require("../images/" + pic)} id={id} onClick={() => handleImgClick(id)} alt="" />
-      <p>IMG {id}</p>
     </div>
   );
 };
