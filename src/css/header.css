@@ -5,3 +5,8 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+
+.messageDiv {
+  /* Not working, but how to make the string take up multiple lines if it's super long? */
+  overflow: auto;
+}

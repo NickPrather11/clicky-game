@@ -1,15 +1,15 @@
 import React from "react";
 import "../css/header.css";
 
-const Header = ({ score, topScore }) => {
+const Header = ({ score, topScore, message }) => {
   return (
     <div>
       <nav className="navbar">
         <div>
           <h1>Cloud Clicker</h1>
         </div>
-        <div>
-          <h3>Click an image to begin!</h3>
+        <div className="messageDiv">
+          <h3>{message}</h3>
         </div>
         <div>
           <h1>
